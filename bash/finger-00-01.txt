@@ -1,0 +1,6 @@
+finger_00000101.jpg 0
+finger_00000000.jpg 0
+finger_00000102.jpg 0
+finger_00000002.jpg 0
+finger_00000001.jpg 0
+finger_00000100.jpg 0
