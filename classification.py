@@ -17,7 +17,6 @@ from get_file_paths import *
 将每个文件局部路径和类别信息按行写入txt文件
 """
 
-
 # import cv2
 # import numpy as np  
 if __name__ == "__main__":
@@ -40,6 +39,7 @@ if __name__ == "__main__":
     ##获取文件列表
     _,all_paths , cnt =  get_paths_list(  params_opt.files_path  )
     classes_id = 0
+
     ##遍历文件路径
     for classes_id , paths in enumerate(  all_paths ):
         for i,  path  in  enumerate( paths ):
@@ -59,6 +59,4 @@ if __name__ == "__main__":
             fp_random.writelines( origin_lines )
             fp_random.close()
             print("一共 {} 类,共写入 共 {} 条数据, 保存在文件{}".format(  classes_id + 1,  cnt ,  random_saved_txt_name  ) )
-
-
 

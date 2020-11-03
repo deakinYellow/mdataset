@@ -41,6 +41,7 @@ def get_paths_list( root_path  ):
         # print("end_dir_paths: ", end_dir_paths )
     # print("all_paths len: ", len( all_paths ) )
     all_dirs.sort()
+    all_paths.sort()
     return all_dirs, all_paths , count
 
 
