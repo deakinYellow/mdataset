@@ -12,14 +12,9 @@ import random
 from get_file_paths import *
 
 
-"""
-读取当前目录下的文件夹，列出文件夹中的所有文件，并按文件夹划分类别
-将每个文件局部路径和类别信息按行写入txt文件
-"""
-
-
 # import cv2
 # import numpy as np  
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--files_path", type=str, default="images/", help="path for  images files")
@@ -38,27 +33,17 @@ if __name__ == "__main__":
     origin_lines = []
 
     ##获取文件列表
-    _,all_paths , cnt =  get_paths_list(  params_opt.files_path  )
+    all_paths , cnt =  get_paths_list(  params_opt.files_path  )
     classes_id = 0
+
     ##遍历文件路径
     for classes_id , paths in enumerate(  all_paths ):
         for i,  path  in  enumerate( paths ):
             print("path: ", path )
-            origin_lines.append( path + " " + str( classes_id) + "\n"  )
+            #origin_lines.append( path + " " + str( classes_id) + "\n"  )
             #fp.write( path + " " +  str( classes_id  ) )
     # 写入完成
-    fp.writelines( origin_lines  )
-    fp.close()
-    print("一共 {} 类,共写入 共 {} 条数据, 保存在文件{}".format(  classes_id + 1,  cnt ,  saved_txt_name  ) )
-
-    ##选择是否输出随机混合文件
-    if( params_opt.random_mix ):
-        random.shuffle( origin_lines )
-        random_saved_txt_name =   saved_txt_name[:-4]  + "-random" + saved_txt_name[-4:]
-        with open( random_saved_txt_name , "w")  as fp_random:
-            fp_random.writelines( origin_lines )
-            fp_random.close()
-            print("一共 {} 类,共写入 共 {} 条数据, 保存在文件{}".format(  classes_id + 1,  cnt ,  random_saved_txt_name  ) )
-
-
+    #fp.writelines( origin_lines  )
+    #fp.close()
+    #print("一共 {} 类,共写入 共 {} 条数据, 保存在文件{}".format(  classes_id + 1,  cnt ,  saved_txt_name  ) )
 

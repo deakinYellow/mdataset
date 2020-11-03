@@ -14,9 +14,10 @@ print("python version: ", sys.version  )
 # class GetFilePaths( ):
     # def __init__( self, root_path  ):
 
-###获取目标路径下的所有文件的相对路径
-###返回格式如下[ ['dir000/000.jpg','dir000/001.jpg'],['dir001/000.jpg','dir001/001.jpg'],...] ,  总文件数目
+###获取目标路径下的所有文件夹,以及所有文件的相对路径
+###返回格式如下 ["dir000", "dir001", ...] ,  [ ['dir000/000.jpg','dir000/001.jpg'],['dir001/000.jpg','dir001/001.jpg'],...] ,  总文件数目
 def get_paths_list( root_path  ):
+    all_dirs = []
     all_paths = []
     count = 0
     # print("paths:", paths )
@@ -32,10 +33,16 @@ def get_paths_list( root_path  ):
             count = count + 1
         ##排除空目录
         if ( len(end_dir_paths ) != 0 ):
+            # #保存底层目录
+            all_dirs.append( end_dir )
+            #先进行排序
+            end_dir_paths.sort()
             all_paths.append( end_dir_paths )
         # print("end_dir_paths: ", end_dir_paths )
     # print("all_paths len: ", len( all_paths ) )
-    return all_paths , count
+    all_dirs.sort()
+    return all_dirs, all_paths , count
+
 
 
 if __name__ == "__main__":
